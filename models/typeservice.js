@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      TypeService.belongsTo(models.Service, { foreignKey : 'id_service' });
+      //TypeService.belongsTo(models.Service, { foreignKey : 'id_service' });
     }
   }
   TypeService.init({
@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     id_typeservice : {
       type : DataTypes.INTEGER,
       primaryKey : true,
-      allowNull : false
+      allowNull : false,
+      autoIncrement : true
     },
 
     typeservice : {

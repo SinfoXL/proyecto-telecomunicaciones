@@ -11,7 +11,7 @@ const index = async (req, res) => {
 
 const get = async (req, res) => {
 
-    const client = await Client.findOne({ where: { id: req.params.id } });  
+    const client = await Client.findOne({ where: { id_client : req.params.id } });  
     res.json(client === null ? 'Not founded' : client);
 
 };

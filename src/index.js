@@ -20,4 +20,4 @@ arrayPathRoutes.forEach(pathRoute => {
     app.use('/api/v1',require(`./routes/${pathRoute}`));
 });
 
-app.listen(PORT, ()=>{console.log(`App runing on port : ${PORT}`)});
+app.listen(PORT, ()=>{console.log(`App runing on port : http://localhost:${PORT}`)});

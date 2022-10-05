@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Request.belongsTo(models.Client, { foreignKey : 'id_client' });
+      //Request.belongsTo(models.Client, { foreignKey : 'id_client' });
     }
   }
   Request.init({
@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     id_request : {
       type : DataTypes.INTEGER,
       allowNull : false,
-      primaryKey : true
+      primaryKey : true,
+      autoIncrement : true
     },
 
     state : {
