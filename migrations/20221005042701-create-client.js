@@ -5,18 +5,18 @@ module.exports = {
     await queryInterface.createTable('Clients', {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
+        unique : true,
         type: Sequelize.INTEGER
       },
       email: {
         type: Sequelize.STRING,
-        allowNull : false,
-        unique : true
-
-      },
-      adress : {
-        type: Sequelize.STRING,
+        unique : true,
         allowNull : false
+      },
+      adress: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

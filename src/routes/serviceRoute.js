@@ -6,7 +6,7 @@ const {index, get, update, store, remove} = require('../controllers/serviceContr
 
 //routes for client path
 
-service.get('/service', index );
+service.get('/services', index );
 service.get('/service/:id', get );
 service.post('/service', store );
 service.put('/service/:id', update );

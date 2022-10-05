@@ -1,7 +1,12 @@
 
+const {TypeService} = require("../../models")
 
-const index = (req, res) => {
-    console.log('index')
+const index = async (req, res) => {
+
+    const serviceTypesList = await TypeService.findAll();
+    console.log("All users:", JSON.stringify(serviceTypesList, null, 2));
+    res.json(serviceTypesList);
+
 };
 
 const get = (req, res) => {

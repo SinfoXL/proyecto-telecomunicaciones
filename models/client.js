@@ -2,7 +2,6 @@
 const {
   Model
 } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
   class Client extends Model {
     /**
@@ -15,11 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Client.init({
-
     id : {
       type : DataTypes.INTEGER,
       allowNull : false,
-      primaryKey : true
+      unique : true,
+      primaryKey : true,
+      autoIncrement : true
     },
 
     email: {
@@ -31,7 +31,6 @@ module.exports = (sequelize, DataTypes) => {
     adress : {
       type : DataTypes.STRING,
     }
-
   }, {
     sequelize,
     modelName: 'Client',

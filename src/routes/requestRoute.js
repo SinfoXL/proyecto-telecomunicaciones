@@ -6,7 +6,7 @@ const {index, get, update, store, remove} = require('../controllers/requestContr
 
 //routes for client path
 
-request.get('/request', index );
+request.get('/requests', index );
 request.get('/request/:id', get );
 request.post('/request', store );
 request.put('/request/:id', update );

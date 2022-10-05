@@ -6,7 +6,7 @@ const {index, get, update, store, remove} = require('../controllers/serviceTypeC
 
 //routes for client path
 
-serviceType.get('/typeof', index );
+serviceType.get('/typesof', index );
 serviceType.get('/typeof/:id', get );
 serviceType.post('/typeof', store );
 serviceType.put('/typeof/:id', update );

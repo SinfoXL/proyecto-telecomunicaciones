@@ -1,7 +1,12 @@
 
+const {Request} = require("../../models");
 
-const index = (req, res) => {
-    console.log('index')
+const index = async(req, res) => {
+    
+    const requestsList = await Request.findAll();
+    console.log("All users:", JSON.stringify(requestsList, null, 2));
+    res.json(requestsList);
+     
 };
 
 const get = (req, res) => {

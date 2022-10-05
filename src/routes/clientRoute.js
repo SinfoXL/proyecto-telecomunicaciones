@@ -6,7 +6,7 @@ const {index, get, update, store, remove} = require('../controllers/clientContro
 
 //routes for client path
 
-client.get('/client', index );
+client.get('/clients', index );
 client.get('/client/:id', get );
 client.post('/client', store );
 client.put('/client/:id', update );

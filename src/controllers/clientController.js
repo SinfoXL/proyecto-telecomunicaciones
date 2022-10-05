@@ -1,35 +1,40 @@
 
-const model = require("../../models/client");
+const {Client} = require("../../models");
 
 const index = async (req, res) => {
 
-    model.Client.findAll()
-    .then( userResponse => {
-      res.status( 200 ).json( userResponse )
-    })
-    .catch( error => {
-      res.status( 400 ).send( error )
-    })
-    const clients = await model.Client.findAll();
-    console.log(JSON.stringify(clients, null, 2));
-    res.send('hola')
-    console.log('index'); 
+    const clientsList = await Client.findAll();
+    console.log("All users:", JSON.stringify(clientsList, null, 2));
+    res.json(clientsList);
+    
 };
 
-const get = (req, res) => {
-    console.log('get');
+const get = async (req, res) => {
+
+    const client = await Client.findOne({ where: { id: req.params.id } });  
+    res.json(client === null ? 'Not founded' : client);
+
 };
 
-const store = (req, res) => {
-    console.log('store');
+const store = async (req, res) => {
+    
+    const { email , adress} = req.body ; 
+    const client = await Client.create({ email : email, adress: adress });
+    res.json(client);
+
 };
 
-const update = (req, res) => {
-    console.log('update');
+const update = async (req, res) => {
+    const { email , adress} = req.body ; 
+    const client = await Client.update({ email : email, adress: adress }, {
+        where : { id : req.params.id } 
+    });
+    res.json(client);
 };
 
-const remove = (req, res) => {
-    console.log('remove');
+const remove = async(req, res) => {
+    await Client.destroy({ where: { id: req.params.id } });
+    res.send(`Cliente con id ${req.params.id} ha sido eliminado`)
 };
 
 
