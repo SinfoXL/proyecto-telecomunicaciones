@@ -27,13 +27,13 @@ const store = async (req, res) => {
 const update = async (req, res) => {
     const { email , adress} = req.body ; 
     const client = await Client.update({ email : email, adress: adress }, {
-        where : { id : req.params.id } 
+        where : { id_client : req.params.id } 
     });
     res.json(client);
 };
 
 const remove = async(req, res) => {
-    await Client.destroy({ where: { id: req.params.id } });
+    await Client.destroy({ where: { id_client : req.params.id } });
     res.send(`Cliente con id ${req.params.id} ha sido eliminado`)
 };
 
