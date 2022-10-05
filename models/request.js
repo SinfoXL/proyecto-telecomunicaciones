@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Request.belongsTo(models.Client, { foreignKey : 'id_client' });
     }
   }
   Request.init({
 
-    id : {
+    id_request : {
       type : DataTypes.INTEGER,
       allowNull : false,
       primaryKey : true

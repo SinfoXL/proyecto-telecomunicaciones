@@ -1,5 +1,6 @@
 
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const fs = require("fs");
 
@@ -11,6 +12,7 @@ const PATH_ROUTES = './src/routes'; //important!! don't change this path or file
 const arrayPathRoutes = fs.readdirSync(PATH_ROUTES)
 
 //middleware
+app.use(cors())
 app.use(express.json());
 
 //routes
